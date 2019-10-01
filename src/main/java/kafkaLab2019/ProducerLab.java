@@ -10,7 +10,7 @@ import org.apache.kafka.common.serialization.StringSerializer;
 public class ProducerLab {
 
 	public static void main(String[] args) {
-		System.out.println("Hi.");
+		System.out.println("Hi ProducerLab.");
 
 		// create producer properties, because producers need that stuff.
 		String bootstrapServers = "localhost:9092";
@@ -28,7 +28,7 @@ public class ProducerLab {
 
 		// send data
 		producer.send(record);
-		
+
 		producer.flush();
 		producer.close();
 
