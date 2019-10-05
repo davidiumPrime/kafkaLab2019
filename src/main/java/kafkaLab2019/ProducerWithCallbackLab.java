@@ -10,7 +10,6 @@ import org.apache.kafka.clients.producer.RecordMetadata;
 import org.apache.kafka.common.serialization.StringSerializer;
 import org.slf4j.*;
 
-
 public class ProducerWithCallbackLab {
 	public static void main(String[] args) {
 		System.out.println("Hi ProducerWithCallbackLab.");
@@ -26,28 +25,28 @@ public class ProducerWithCallbackLab {
 		// create the producer
 		KafkaProducer<String, String> producer = new KafkaProducer<String, String>(properties);
 
+		
+		for (int i =0; i<10; i++) {
 		// create the records
 		ProducerRecord<String, String> record = new ProducerRecord<String, String>("first_topic",
-				"Hello World of Kakfa Topics");
+				"Hello World of Kakfa Topics" + Integer.toHexString(i));
 
 		// send data
 		producer.send(record, new Callback() {
 
 			public void onCompletion(RecordMetadata metadata, Exception exception) {
-				System.out.println("===CALLBACK LOG===");	
-			
-				if(exception ==null) {
-					logger.info(
-							"Topic: " + metadata.topic() + 
-							"Partition: " + metadata.partition() + 
-							"Offset: " + metadata.offset() + 
-							"Timestamp: " + metadata.timestamp()
-							);
-				}
-				else {
+
+				if (exception == null) {
+					System.out.println("===CALLBACK LOG===");
+					logger.info("\n Topic: " + metadata.topic() + "\n Partition: " + metadata.partition()
+							+ "\n Offset: " + metadata.offset() + "\n Timestamp: " + metadata.timestamp());
+				} else {
 					logger.error("Error During Production: " + exception);
 				}
-			}});
+			}
+		});
+		
+		}
 
 		producer.flush();
 		producer.close();
