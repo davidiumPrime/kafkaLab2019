@@ -28,16 +28,19 @@ public class ProducerWithCallbackLab {
 		
 		for (int i =0; i<10; i++) {
 		// create the records
+			
+			
 		ProducerRecord<String, String> record = new ProducerRecord<String, String>("first_topic",
-				"Hello World of Kakfa Topics" + Integer.toHexString(i));
+				"==HELLO WORLD OF KAFKA TOPICS #" + Integer.toString(i)+"===");
 
 		// send data
+		System.out.println("===CALLBACK LOG" + Integer.toString(i)+"===");
 		producer.send(record, new Callback() {
 
 			public void onCompletion(RecordMetadata metadata, Exception exception) {
 
 				if (exception == null) {
-					System.out.println("===CALLBACK LOG===");
+					
 					logger.info("\n Topic: " + metadata.topic() + "\n Partition: " + metadata.partition()
 							+ "\n Offset: " + metadata.offset() + "\n Timestamp: " + metadata.timestamp());
 				} else {

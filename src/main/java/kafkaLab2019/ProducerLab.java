@@ -24,9 +24,9 @@ public class ProducerLab {
 
 		// create teh records
 		ProducerRecord<String, String> record = new ProducerRecord<String, String>("first_topic",
-				"Hello World of Kakfa Topics");
+				"Hello World of Kakfa Topics. This is the first producer lab.");
 
-		// send data
+		// send data - asynchronous
 		producer.send(record);
 
 		producer.flush();
