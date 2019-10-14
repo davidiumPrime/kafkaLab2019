@@ -2,13 +2,13 @@ package kafkaLab2019;
 
 import java.time.Duration;
 import java.util.Arrays;
-import java.util.Collections;
+
 import java.util.Properties;
 import org.apache.kafka.clients.consumer.ConsumerConfig;
 import org.apache.kafka.clients.consumer.ConsumerRecord;
 import org.apache.kafka.clients.consumer.ConsumerRecords;
 import org.apache.kafka.clients.consumer.KafkaConsumer;
-import org.apache.kafka.clients.consumer.OffsetAndMetadata;
+
 import org.apache.kafka.common.TopicPartition;
 import org.apache.kafka.common.serialization.StringDeserializer;
 
@@ -33,7 +33,7 @@ public class ConsumerAssignSeekLab {
 		KafkaConsumer<String, String> consumer = new KafkaConsumer<String, String>(properties);
 
 		// Assign and Seek - Primarily used to replay data or seek a specific message
-//assign
+		//assign
 		TopicPartition partitionToRead = new TopicPartition("first_topic", 0);
 		long offsetToRead = 15L;
 		consumer.assign(Arrays.asList(partitionToRead));
@@ -61,5 +61,6 @@ public class ConsumerAssignSeekLab {
 			}
 		}
 		logger.info("Exiting the Application.");
+		consumer.close();
 	}
 }
