@@ -79,6 +79,16 @@ public class TwitterProducer {
 		String consumerSecret = dotenv.get("consumerSecret");
 		String token = dotenv.get("token");
 		String tokenSecret = dotenv.get("tokenSecret");
+		
+
+		log.info(
+			"\n"+	"====="+ "\n"+
+				"Consumer Key: " + consumerKey + "\n" +
+				"Consumer Secret: " + consumerSecret + "\n" + 
+				"Token: " + token + "\n" + 
+				"Token Secret: " + tokenSecret + "\n" +
+				"====="
+				);
 
 		Hosts hosebirdHosts = new HttpHosts(Constants.STREAM_HOST);
 		StatusesFilterEndpoint hosebirdEndpoint = new StatusesFilterEndpoint();
@@ -86,6 +96,7 @@ public class TwitterProducer {
 
 		List<String> terms = Lists.newArrayList("bitcoin");
 		hosebirdEndpoint.trackTerms(terms);
+		
 
 		// These secrets should be read from a config file
 		Authentication hosebirdAuth = new OAuth1(consumerKey, consumerSecret, token, tokenSecret);
