@@ -22,3 +22,4 @@ bin/kafka-console-consumer.sh  --zookeeper 127.0.0.1:9092 --create --topic twitt
 
 bin/kafka-console-consumer.sh --bootstrap-server 127.0.0.1:9092 --topic twitter_tweets --from-beginning
 
+sudo bash kafkaQuickStart.sh start
