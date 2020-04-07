@@ -2,11 +2,27 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>org.davidonus</groupId>
-	<artifactId>KafkaLab</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	 <packaging>pom</packaging>
+	<parent>
+		<groupId>org.davidonus</groupId>
+		<artifactId>KafkaLab</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>kafka-consumer-elasticsearch</artifactId>
+
 	<dependencies>
+		<!-- https://mvnrepository.com/artifact/org.elasticsearch.client/elasticsearch-rest-high-level-client -->
+		<dependency>
+			<groupId>org.elasticsearch.client</groupId>
+			<artifactId>elasticsearch-rest-high-level-client</artifactId>
+			<version>7.6.2</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+			<version>4.5</version>
+		</dependency>
+
 		<dependency>
 			<groupId>org.apache.kafka</groupId>
 			<artifactId>kafka-clients</artifactId>
@@ -17,11 +33,6 @@
 			<artifactId>slf4j-simple</artifactId>
 			<version>1.7.28</version>
 		</dependency>
-		<dependency>
-			<groupId>com.twitter</groupId>
-			<artifactId>hbc-core</artifactId> <!-- or hbc-twitter4j -->
-			<version>2.2.0</version> <!-- or whatever the latest version is -->
-		</dependency>
 
 		<dependency>
 			<groupId>io.github.cdimascio</groupId>
@@ -30,19 +41,6 @@
 		</dependency>
 
 
-		<!-- https://mvnrepository.com/artifact/org.twitter4j/twitter4j-stream -->
-		<dependency>
-			<groupId>org.twitter4j</groupId>
-			<artifactId>twitter4j-stream</artifactId>
-			<version>4.0.7</version>
-		</dependency>
-
 
 	</dependencies>
-	<modules>
-		<module>kafka-basics</module>
-		<module>kafka-producer-twitter</module>
-
-		<module>kafka-consumer-elasticsearch</module>
-	</modules>
 </project>

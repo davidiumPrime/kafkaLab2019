@@ -40,4 +40,7 @@
 
 
 	</dependencies>
+	<modules>
+		<module>kafka-consumer-twitter</module>
+	</modules>
 </project>

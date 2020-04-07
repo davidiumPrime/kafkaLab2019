@@ -4,7 +4,7 @@ bin/zookeeper-server-start.sh config/zookeeper.properties
 
 ======
 
-cd /home/david/Desktop/DevOps2019/kafka/path/kafka_2.12-2.2.1
+cd /home/david/Desktop/DevOps2019/kafka/path/kafka_2.12-2.2.1  |
 
 bin/kafka-server-start.sh config/server.properties 
 
